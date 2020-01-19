@@ -70,7 +70,7 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:     Cloak
+  exposed-modules:     Language.Cloak.Compile
                        Prelude
 
 executable cloak
