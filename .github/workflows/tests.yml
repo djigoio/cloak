@@ -36,6 +36,7 @@ jobs:
 
       - name: Build
         run: |
+          cabal update
           cabal build
 
       - name: Run tests
