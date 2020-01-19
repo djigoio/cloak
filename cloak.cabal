@@ -87,11 +87,12 @@ test-suite cloak-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  other-modules:       CloakSpec
+  other-modules:       Language.Cloak.ParseSpec
   build-depends:       cloak
                      , hspec
                      , hspec-discover
                      , hspec-megaparsec
+                     , megaparsec
   build-tool-depends: hspec-discover:hspec-discover == 2.*
 
 benchmark cloak-benchmark
