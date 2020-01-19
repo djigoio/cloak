@@ -1,4 +1,4 @@
-cabal-version:       2.0
+cabal-version:       3.0
 name:                certe
 version:             0.0.0.0
 synopsis:            See README for more info
@@ -14,94 +14,80 @@ extra-doc-files:     README.md
                    , CHANGELOG.md
 tested-with:         GHC == 8.6.5
 
+common common-options
+  build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
+                     , relude
+  ghc-options:         -Wall
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+  default-language:    Haskell2010
+  default-extensions:  AutoDeriveTypeable
+                       BangPatterns
+                       BinaryLiterals
+                       ConstraintKinds
+                       DataKinds
+                       DefaultSignatures
+                       DeriveDataTypeable
+                       DeriveFoldable
+                       DeriveFunctor
+                       DeriveGeneric
+                       DeriveTraversable
+                       DoAndIfThenElse
+                       EmptyDataDecls
+                       ExistentialQuantification
+                       FlexibleContexts
+                       FlexibleInstances
+                       FunctionalDependencies
+                       GADTs
+                       GeneralizedNewtypeDeriving
+                       InstanceSigs
+                       KindSignatures
+                       LambdaCase
+                       MonadFailDesugaring
+                       MultiParamTypeClasses
+                       MultiWayIf
+                       NamedFieldPuns
+                       OverloadedStrings
+                       PartialTypeSignatures
+                       PatternGuards
+                       PolyKinds
+                       RankNTypes
+                       RecordWildCards
+                       ScopedTypeVariables
+                       StandaloneDeriving
+                       TupleSections
+                       TypeFamilies
+                       TypeSynonymInstances
+                       ViewPatterns
+
 library
+  import:              common-options
   hs-source-dirs:      src
   exposed-modules:     Certe
                        Prelude
 
-  build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
-                     , relude
-
-  ghc-options:         -Wall
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-                       -Wmissing-export-lists
-                       -Wpartial-fields
-
-  default-language:    Haskell2010
-
 executable certe
+  import:              common-options
   hs-source-dirs:      app
   main-is:             Main.hs
-
-  build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
-                     , certe
-                     , relude
-
-  ghc-options:         -Wall
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-                       -Wmissing-export-lists
-                       -Wpartial-fields
-
-  default-language:    Haskell2010
+  build-depends:       certe
 
 test-suite certe-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-
-  build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
-                     , certe
-                     , relude
-
-  ghc-options:         -Wall
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-                       -Wmissing-export-lists
-                       -Wpartial-fields
-
-  default-language:    Haskell2010
+  build-depends:       certe
+                     , hspec
 
 benchmark certe-benchmark
   type:                exitcode-stdio-1.0
   hs-source-dirs:      benchmark
   main-is:             Main.hs
-
-  build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
+  build-depends:       certe
                      , gauge
-                     , certe
-                     , relude
-
-  ghc-options:         -Wall
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-                       -Wmissing-export-lists
-                       -Wpartial-fields
-
-  default-language:    Haskell2010
