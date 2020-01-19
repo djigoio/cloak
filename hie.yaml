@@ -1,0 +1,10 @@
+cradle:
+  cabal:
+    - path: "./benchmark"
+      component: "benchmark:cloak-benchmark"
+    - path: "./app"
+      component: "exe:cloak"
+    - path: "./test"
+      component: "test:cloak-test"
+    - path: "./src"
+      component: "lib:cloak"

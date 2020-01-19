@@ -1,6 +1,6 @@
 cabal-version:       3.0
-name:                certe
-version:             0.0.0.0
+name:                cloak
+version:             0.0.0
 synopsis:            See README for more info
 description:         See README for more info
 license:             Apache-2.0
@@ -16,7 +16,8 @@ tested-with:         GHC == 8.6.5
 
 common common-options
   build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
-                     , relude
+                     , rio
+
   ghc-options:         -Wall
                        -Wincomplete-uni-patterns
                        -Wincomplete-record-updates
@@ -69,25 +70,29 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:     Certe
+  exposed-modules:     Cloak
                        Prelude
 
-executable certe
+executable cloak
   import:              common-options
   hs-source-dirs:      app
   main-is:             Main.hs
-  build-depends:       certe
+  build-depends:       cloak
 
-test-suite certe-test
+test-suite cloak-test
+  import:              common-options
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  build-depends:       certe
+  build-depends:       cloak
                      , hspec
+                     , hspec-discover
+  build-tool-depends: hspec-discover:hspec-discover == 2.*
 
-benchmark certe-benchmark
+benchmark cloak-benchmark
+  import:              common-options
   type:                exitcode-stdio-1.0
   hs-source-dirs:      benchmark
   main-is:             Main.hs
-  build-depends:       certe
+  build-depends:       cloak
                      , gauge

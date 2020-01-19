@@ -1,7 +1,9 @@
-module Main (main) where
+module Main
+  ( main,
+  )
+where
 
-import Certe (someFunc)
-
+import Cloak (runApp)
 
 main :: IO ()
-main = someFunc
+main = runApp
