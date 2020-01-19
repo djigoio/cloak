@@ -1,10 +1,17 @@
 name: Build and Test
-
-on: [push]
+on:
+  push:
+    paths-ignore:
+      - "**.md"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macOS-latest, windows-latest]
+      fail-fast: false
+
+    runs-on: ${{ matrix.runs-on }}
 
     steps:
       # We cache the elements of the Cabal store separately, as the entirety of ~/.cabal can grow very large for projects with many dependencies.
