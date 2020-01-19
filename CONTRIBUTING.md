@@ -22,3 +22,16 @@
   - `./cabal-hie-install hie-8.6.5`
   - `./cabal-hie-install data`
 - Install the [VSCode HIE server extension](https://marketplace.visualstudio.com/items?itemName=alanz.vscode-hie-server) for Visual Studio Code.
+
+## Learning the libraries used in the project
+
+_(Hint: Click on the links in the headings to go to the API docs of the libraries)_
+
+### Parsing - [`megaparsec`](https://hackage.haskell.org/package/megaparsec-8.0.0)
+
+A nice, extensive, tutorial on `parsec` (the predecessor of `megaparsec`) can be found [here](https://jakewheat.github.io/intro_to_parsing/).
+Most of it applies to the usage of `megaparsec`.
+
+### Testing - [`hspec`](https://hackage.haskell.org/package/hspec)
+
+The [official site](http://hspec.github.io/) of `hspec` has a nice tutorial and more resources.

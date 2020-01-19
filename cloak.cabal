@@ -70,8 +70,11 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:     Cloak
+  exposed-modules:     Language.Cloak.Compile
+                       Language.Cloak.Parse
+                       Language.Cloak.Syntax
                        Prelude
+  build-depends:       megaparsec
 
 executable cloak
   import:              common-options
@@ -84,10 +87,12 @@ test-suite cloak-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  other-modules:       CloakSpec
+  other-modules:       Language.Cloak.ParseSpec
   build-depends:       cloak
                      , hspec
                      , hspec-discover
+                     , hspec-megaparsec
+                     , megaparsec
   build-tool-depends: hspec-discover:hspec-discover == 2.*
 
 benchmark cloak-benchmark

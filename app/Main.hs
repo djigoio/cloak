@@ -3,7 +3,7 @@ module Main
   )
 where
 
-import Cloak (runApp)
+import Language.Cloak.Compile (compile)
 
 main :: IO ()
-main = runApp
+main = compile
