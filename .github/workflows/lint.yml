@@ -38,7 +38,4 @@ jobs:
 
       - name: Run HLint
         run: |
-          curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s .
-
-          cabal update
-          cabal build
+          curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s ./app ./benchmark ./src ./test

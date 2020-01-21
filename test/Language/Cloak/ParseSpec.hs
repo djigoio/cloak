@@ -9,6 +9,6 @@ import Text.Megaparsec
 spec :: Spec
 spec =
   describe "parsing of"
-    $ describe "number literals"
-    $ it "should parse positive integers"
+    . describe "number literals"
+    . it "should parse positive integers"
     $ parse numberLiteral "" "42" `shouldParse` IntegerLiteral 42
