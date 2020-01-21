@@ -2,7 +2,7 @@
 
 ## Setup development environment
 
-**Windows**
+### Windows
 
 - Install [Chocolatey](https://chocolatey.org/install)
 - Install `cabal v3` with `choco install cabal` from an admin PowerShell
@@ -22,10 +22,22 @@
   - `./cabal-hie-install hie-8.6.5`
   - `./cabal-hie-install data`
 - Install the [VSCode HIE server extension](https://marketplace.visualstudio.com/items?itemName=alanz.vscode-hie-server) for Visual Studio Code.
+- Install the [VSCode ormolu extension](https://marketplace.visualstudio.com/items?itemName=sjurmillidahl.ormolu-vscode) and set it as the default formatter.
+
+## Building, testing and running
+
+We use `cabal` version 3.0. The commands used are:
+
+```bash
+cabal build
+cabal test
+cabal run
+cabal repl  # To load an interactive Haskell REPL
+```
 
 ## Learning the libraries used in the project
 
-_(Hint: Click on the links in the headings to go to the API docs of the libraries)_
+(Hint: Click on the links in the headings to go to the API docs of the libraries)
 
 ### Parsing - [`megaparsec`](https://hackage.haskell.org/package/megaparsec-8.0.0)
 
