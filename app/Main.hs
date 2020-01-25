@@ -3,6 +3,7 @@ module Main
   )
 where
 
+import Language.Cloak.Compile (compile)
+
 main :: IO ()
-main =
-  runSimpleApp (logInfo "Hello world")
+main = compile

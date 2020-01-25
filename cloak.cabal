@@ -70,21 +70,11 @@ common common-options
 library
   import:              common-options
   hs-source-dirs:      src
-  exposed-modules:
-                       Language.Cloak.Core
-  -- Language.Cloak.Compile
-                       Language.Cloak.Compile.Literal.Number
-                       Language.Cloak.Compile.Comment
-  -- Language.Cloak.Parse
-                       Language.Cloak.Parse.Core
-                       Language.Cloak.Parse.Literal.Number
-                       Language.Cloak.Parse.Comment
-  -- Language.Cloak.Syntax
-                       Language.Cloak.Syntax.Literal.Number
-                       Language.Cloak.Syntax.Comment
+  exposed-modules:     Language.Cloak.Compile
+                       Language.Cloak.Parse
+                       Language.Cloak.Syntax
                        Prelude
   build-depends:       megaparsec
-                     , haskell-src-exts
 
 executable cloak
   import:              common-options
@@ -97,15 +87,12 @@ test-suite cloak-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  other-modules:       Language.Cloak.Parse.Literal.NumberSpec
-                       Language.Cloak.Parse.CommentSpec
-                       Language.Cloak.Compile.Literal.NumberSpec
+  other-modules:       Language.Cloak.ParseSpec
   build-depends:       cloak
                      , hspec
                      , hspec-discover
                      , hspec-megaparsec
                      , megaparsec
-                     , haskell-src-exts
   build-tool-depends: hspec-discover:hspec-discover == 2.*
 
 benchmark cloak-benchmark
