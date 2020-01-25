@@ -4,6 +4,7 @@
 [![Apache-2.0 license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fcloak-lang%2Fcloak%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/cloak-lang/cloak/goto?ref=master)
 [![Mergify Status][mergify-status]][mergify]
+[![gitmoji](https://img.shields.io/badge/gitmoji-%20%F0%9F%98%9C%20%F0%9F%98%8D-FFDD67.svg)](https://gitmoji.carloscuesta.me)
 
 Cloak is a language focused on developer productivity and happiness. It lets you write fast and safe software, while maintaining the ergonomics of a high level language.
 
