@@ -3,4 +3,4 @@ module Prelude
   )
 where
 
-import RIO as Reexported
+import RIO as Reexported hiding (try)
