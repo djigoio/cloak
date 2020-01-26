@@ -5,5 +5,7 @@ where
 
 import Language.Cloak.Core
 
-data Node = IntegerNode Position Integer
+data Node
+  = IntegerNode Position Integer String
+  | FloatNode Position Rational String
   deriving (Show, Eq)

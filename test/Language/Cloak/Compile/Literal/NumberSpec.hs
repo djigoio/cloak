@@ -8,10 +8,21 @@ import Test.Hspec
 spec :: Spec
 spec =
   describe "compilation of"
-    . describe "literals"
     . describe "number literals"
-    . it "compiles positive integers into Haskell integers"
     $ do
-      let input = Number.IntegerNode undefined 42
-      let expectedOutput = Haskell.Int () 42 "42"
-      Number.compile input `shouldBe` expectedOutput
+      it "compiles positive integers into Haskell integers" $ do
+        let input = Number.IntegerNode undefined 42 "42"
+        let expectedOutput = Haskell.Int () 42 "42"
+        Number.compile input `shouldBe` expectedOutput
+      it "compiles negative integers into Haskell integers" $ do
+        let input = Number.IntegerNode undefined (-42) "-42"
+        let expectedOutput = Haskell.Int () (-42) "-42"
+        Number.compile input `shouldBe` expectedOutput
+      it "compiles positive floats into Haskell floats" $ do
+        let input = Number.FloatNode undefined 4.2 "4.2"
+        let expectedOutput = Haskell.Frac () 4.2 "4.2"
+        Number.compile input `shouldBe` expectedOutput
+      it "compiles negative floats into Haskell floats" $ do
+        let input = Number.FloatNode undefined (-4.2) "-4.2"
+        let expectedOutput = Haskell.Frac () (-4.2) "-4.2"
+        Number.compile input `shouldBe` expectedOutput
