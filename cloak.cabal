@@ -84,7 +84,7 @@ library
                        Language.Cloak.Syntax.Comment
                        Prelude
   build-depends:       megaparsec
-                     , haskell-src-exts
+                     , ghc
 
 executable cloak
   import:              common-options
@@ -105,7 +105,7 @@ test-suite cloak-test
                      , hspec-discover
                      , hspec-megaparsec
                      , megaparsec
-                     , haskell-src-exts
+                     , ghc
   build-tool-depends: hspec-discover:hspec-discover == 2.*
 
 benchmark cloak-benchmark
