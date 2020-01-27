@@ -1,7 +1,7 @@
 module Language.Cloak.Compile.Literal.NumberSpec (spec) where
 
-import qualified BasicTypes as GHC
-import qualified GHC
+import BasicTypes (mkFractionalLit, mkIntegralLit)
+import GHC (mkHsFractional, mkHsIntegral)
 import qualified Language.Cloak.Compile.Literal.Number as Number
 import Language.Cloak.Compile.TestUtils
 import qualified Language.Cloak.Syntax.Literal.Number as Number
@@ -13,14 +13,12 @@ spec =
     . describe "number literals"
     $ do
       it "compiles positive integers into Haskell integers" $ do
-        let input = Number.IntegerNode undefined 42 "42"
-        let expectedOutput = GHC.OverLit GHC.noExt (GHC.HsIntegral (GHC.mkIntegralLit (42 :: Int))) (GHC.XExpr GHC.noExt)
+        let value = 42 :: Integer
+        let input = Number.IntegerNode undefined value (show value)
+        let expectedOutput = mkHsIntegral (mkIntegralLit value)
         Number.compile input `shouldCompileTo` expectedOutput
       it "compiles positive floats into Haskell floats" $ do
-        let input = Number.FloatNode undefined 4.2 "4.2"
-        let expectedOutput =
-              GHC.OverLit
-                GHC.noExt
-                (GHC.HsFractional (GHC.mkFractionalLit (4.2 :: Double)))
-                (GHC.XExpr GHC.noExt)
+        let value = 4.2 :: Rational
+        let input = Number.FloatNode undefined value (show value)
+        let expectedOutput = mkHsFractional (mkFractionalLit value)
         Number.compile input `shouldCompileTo` expectedOutput

@@ -3,17 +3,14 @@ module Language.Cloak.Compile.Literal.Number
   )
 where
 
-import qualified BasicTypes as GHC
-import qualified GHC
+import BasicTypes (mkFractionalLit, mkIntegralLit)
+import GHC (GhcPs, HsOverLit, mkHsFractional, mkHsIntegral)
 import qualified Language.Cloak.Syntax.Literal.Number as Number
 
-compile :: Number.Node -> GHC.HsOverLit GHC.GhcPs
+compile :: Number.Node -> HsOverLit GhcPs
 compile literal =
   case literal of
     Number.IntegerNode _ value _ ->
-      GHC.OverLit GHC.noExt (GHC.HsIntegral (GHC.mkIntegralLit value)) (GHC.XExpr GHC.noExt)
+      mkHsIntegral (mkIntegralLit value)
     Number.FloatNode _ value _ ->
-      GHC.OverLit
-        GHC.noExt
-        (GHC.HsFractional (GHC.mkFractionalLit value))
-        (GHC.XExpr GHC.noExt)
+      mkHsFractional (mkFractionalLit value)

@@ -1,8 +1,8 @@
 module Language.Cloak.Compile.Literal.StringSpec (spec) where
 
-import qualified BasicTypes as GHC
-import qualified FastString as GHC
-import qualified GHC
+import BasicTypes (SourceText (..))
+import FastString (mkFastString)
+import GHC (mkHsIsString)
 import qualified Language.Cloak.Compile.Literal.String as String
 import Language.Cloak.Compile.TestUtils
 import qualified Language.Cloak.Syntax.Literal.String as String
@@ -16,5 +16,5 @@ spec =
     $ do
       let value = "Hello world!"
       let input = String.StringNode undefined value
-      let expectedOutput = GHC.mkHsIsString (GHC.SourceText value) (GHC.mkFastString value)
+      let expectedOutput = mkHsIsString (SourceText value) (mkFastString value)
       String.compile input `shouldCompileTo` expectedOutput

@@ -14,8 +14,3 @@ spec =
       parse Number.parse "" "42" `shouldParse` Number.IntegerNode (Position 1 1) 42 "42"
     it "should parse negative numbers" $
       parse Number.parse "" "-42" `shouldParse` Number.IntegerNode (Position 1 1) (-42) "-42"
--- FIXME: Failing tests due to precision
--- it "should parse positive floats" $
---   parse Number.parse "" "4.2" `shouldParse` Number.FloatNode (Position 1 1) 4.2 "4.2"
--- it "should parse negative floats" $
---   parse Number.parse "" "-4.2" `shouldParse` Number.FloatNode (Position 1 1) (-4.2) "-4.2"
