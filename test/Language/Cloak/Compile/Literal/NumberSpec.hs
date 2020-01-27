@@ -3,8 +3,8 @@ module Language.Cloak.Compile.Literal.NumberSpec (spec) where
 import qualified BasicTypes as GHC
 import qualified GHC
 import qualified Language.Cloak.Compile.Literal.Number as Number
+import Language.Cloak.Compile.TestUtils
 import qualified Language.Cloak.Syntax.Literal.Number as Number
-import qualified Outputable as GHC
 import Test.Hspec
 
 spec :: Spec
@@ -24,9 +24,3 @@ spec =
                 (GHC.HsFractional (GHC.mkFractionalLit (4.2 :: Double)))
                 (GHC.XExpr GHC.noExt)
         Number.compile input `shouldCompileTo` expectedOutput
-
-shouldCompileTo :: GHC.Outputable a => a -> a -> Expectation
-shouldCompileTo a b =
-  unsafeShow a `shouldBe` unsafeShow b
-  where
-    unsafeShow = GHC.showSDocUnsafe . GHC.ppr
