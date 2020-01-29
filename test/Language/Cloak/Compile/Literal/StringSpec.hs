@@ -11,7 +11,7 @@ import Test.Hspec
 spec :: Spec
 spec =
   describe "compilation of"
-    . describe "number literals"
+    . describe "string literals"
     . it "compiles strings into Haskell strings"
     $ do
       let value = "Hello world!"

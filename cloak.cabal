@@ -75,15 +75,18 @@ library
   -- Language.Cloak.Compile
                        Language.Cloak.Compile.Literal.Number
                        Language.Cloak.Compile.Literal.String
+                       Language.Cloak.Compile.Literal.Character
                        Language.Cloak.Compile.Comment
   -- Language.Cloak.Parse
                        Language.Cloak.Parse.Core
                        Language.Cloak.Parse.Literal.Number
                        Language.Cloak.Parse.Literal.String
+                       Language.Cloak.Parse.Literal.Character
                        Language.Cloak.Parse.Comment
   -- Language.Cloak.Syntax
                        Language.Cloak.Syntax.Literal.Number
                        Language.Cloak.Syntax.Literal.String
+                       Language.Cloak.Syntax.Literal.Character
                        Language.Cloak.Syntax.Comment
                        Prelude
   build-depends:       megaparsec
@@ -102,9 +105,11 @@ test-suite cloak-test
   main-is:             Spec.hs
   other-modules:       Language.Cloak.Parse.Literal.NumberSpec
                        Language.Cloak.Parse.Literal.StringSpec
+                       Language.Cloak.Parse.Literal.CharacterSpec
                        Language.Cloak.Parse.CommentSpec
                        Language.Cloak.Compile.Literal.NumberSpec
                        Language.Cloak.Compile.Literal.StringSpec
+                       Language.Cloak.Compile.Literal.CharacterSpec
                        Language.Cloak.Compile.TestUtils
   build-depends:       cloak
                      , hspec
