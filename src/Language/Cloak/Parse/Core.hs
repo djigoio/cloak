@@ -10,12 +10,13 @@ module Language.Cloak.Parse.Core
     eof,
     eol,
     try,
+    label,
   )
 where
 
 import Language.Cloak.Core
 import RIO.Text (pack)
-import Text.Megaparsec (Parsec, SourcePos (..), eof, getSourcePos, manyTill, try, unPos)
+import Text.Megaparsec (Parsec, SourcePos (..), eof, getSourcePos, label, manyTill, try, unPos)
 import Text.Megaparsec.Char (char, eol, space1)
 import Text.Megaparsec.Char.Lexer as Exported hiding (lexeme)
 import qualified Text.Megaparsec.Char.Lexer as L

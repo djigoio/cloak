@@ -7,7 +7,7 @@ import Language.Cloak.Parse.Core
 import qualified Language.Cloak.Syntax.Literal.String as String
 
 parse :: Parser String.Node
-parse = do
+parse = label "string literal" $ do
   pos <- getPosition
   parsedValue <- lex string
   pure (String.StringNode pos parsedValue)

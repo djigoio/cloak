@@ -9,7 +9,7 @@ import Language.Cloak.Parse.Core
 import qualified Language.Cloak.Syntax.Comment as Comment
 
 parse :: Parser Comment.Node
-parse = do
+parse = label "comment" $ do
   pos <- getPosition
   try (doc pos)
     <|> try (multiLine pos)

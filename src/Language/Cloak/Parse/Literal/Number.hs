@@ -9,7 +9,7 @@ import Language.Cloak.Parse.Core
 import qualified Language.Cloak.Syntax.Literal.Number as Number
 
 parse :: Parser Number.Node
-parse = do
+parse = label "number literal" $ do
   pos <- getPosition
   try (signedDecimal pos)
     <|> signedInteger pos
