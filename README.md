@@ -2,8 +2,8 @@
 
 [![Simple Haskell](http://simplehaskell.org/badges/badge.svg)](http://simplehaskell.org)
 [![Apache-2.0 license](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
-[![GitHub Actions Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fcloak-lang%2Fcloak%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/cloak-lang/cloak/goto?ref=master)
-[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/ph5yumg080iag1ti?svg=true)](https://ci.appveyor.com/project/NickSeagull/cloak)
+[![GitHub actions Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fcloak-lang%2Fcloak%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/cloak-lang/cloak/goto?ref=master)
+[![Appveyor Build status](https://ci.appveyor.com/api/projects/status/ph5yumg080iag1ti/branch/master?svg=true)](https://ci.appveyor.com/project/NickSeagull/cloak/branch/master)
 [![Mergify Status][mergify-status]][mergify]
 [![gitmoji](https://img.shields.io/badge/gitmoji-%20%F0%9F%98%9C%20%F0%9F%98%8D-FFDD67.svg)](https://gitmoji.carloscuesta.me)
 
