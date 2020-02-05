@@ -16,7 +16,10 @@ tested-with:         GHC == 8.6.5
 
 common common-options
   build-depends:       base-noprelude >= 4.12.0.0 && < 4.14
+  -- Fix for https://github.com/haskell/vector/issues/287 which clashes with RIO
+                     , vector >= 0.12.1.2
                      , rio
+                     , string-interpolate
 
   ghc-options:         -Wall
                        -Wincomplete-uni-patterns
@@ -58,6 +61,7 @@ common common-options
                        PartialTypeSignatures
                        PatternGuards
                        PolyKinds
+                       QuasiQuotes
                        RankNTypes
                        RecordWildCards
                        ScopedTypeVariables
@@ -71,23 +75,19 @@ library
   import:              common-options
   hs-source-dirs:      src
   exposed-modules:
-                       Language.Cloak.Core
-  -- Language.Cloak.Compile
-                       Language.Cloak.Compile.Literal.Number
-                       Language.Cloak.Compile.Literal.String
-                       Language.Cloak.Compile.Literal.Character
-                       Language.Cloak.Compile.Comment
-  -- Language.Cloak.Parse
-                       Language.Cloak.Parse.Core
-                       Language.Cloak.Parse.Literal.Number
-                       Language.Cloak.Parse.Literal.String
-                       Language.Cloak.Parse.Literal.Character
-                       Language.Cloak.Parse.Comment
-  -- Language.Cloak.Syntax
-                       Language.Cloak.Syntax.Literal.Number
-                       Language.Cloak.Syntax.Literal.String
-                       Language.Cloak.Syntax.Literal.Character
-                       Language.Cloak.Syntax.Comment
+                       Cloak.Core
+                       Cloak.Error
+  -- Cloak.Compile
+                       Cloak.Compile.Core
+                       Cloak.Compile.Expression
+                       Cloak.Compile.Expression.Literal
+  -- Cloak.Parse
+                       Cloak.Parse.Core
+                       Cloak.Parse.Expression
+                       Cloak.Parse.Expression.Literal
+  -- Cloak.Syntax
+                       Cloak.Syntax.Expression
+                       Cloak.Syntax.Expression.Literal
                        Prelude
   build-depends:       megaparsec
                      , ghc
@@ -103,18 +103,15 @@ test-suite cloak-test
   type:                exitcode-stdio-1.0
   hs-source-dirs:      test
   main-is:             Spec.hs
-  other-modules:       Language.Cloak.Parse.Literal.NumberSpec
-                       Language.Cloak.Parse.Literal.StringSpec
-                       Language.Cloak.Parse.Literal.CharacterSpec
-                       Language.Cloak.Parse.CommentSpec
-                       Language.Cloak.Compile.Literal.NumberSpec
-                       Language.Cloak.Compile.Literal.StringSpec
-                       Language.Cloak.Compile.Literal.CharacterSpec
-                       Language.Cloak.Compile.TestUtils
+  other-modules:       Cloak.Parse.Expression.LiteralSpec
+                       Cloak.Compile.Expression.LiteralSpec
+                       Cloak.Test
   build-depends:       cloak
                      , hspec
                      , hspec-discover
                      , hspec-megaparsec
+                     , hw-hspec-hedgehog
+                     , hedgehog
                      , megaparsec
                      , ghc
   build-tool-depends: hspec-discover:hspec-discover == 2.*

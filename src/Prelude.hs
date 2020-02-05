@@ -3,4 +3,5 @@ module Prelude
   )
 where
 
-import RIO as Reexported hiding (try)
+import Data.String.Interpolate as Reexported (i)
+import RIO as Reexported hiding (span, try)
