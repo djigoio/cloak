@@ -19,8 +19,8 @@
 
 - Clone the [`haskell-ide-engine` repo](https://github.com/haskell/haskell-ide-engine) somewhere and install it for GHC 8.6.5:
   - `git clone https://github.com/haskell/haskell-ide-engine && cd haskell-ide-engine`
-  - `./cabal-hie-install hie-8.6.5`
-  - `./cabal-hie-install data`
+  - `./cabal-hie-install hie-8.6.5 or stack ./install.hs hie-8.6.5`
+  - `./cabal-hie-install data or stack ./install.hs data`
 - Install the [VSCode HIE server extension](https://marketplace.visualstudio.com/items?itemName=alanz.vscode-hie-server) for Visual Studio Code.
 - Install the [VSCode ormolu extension](https://marketplace.visualstudio.com/items?itemName=sjurmillidahl.ormolu-vscode) and set it as the default formatter.
 
